@@ -3,63 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Menu Page</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Simple Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #welcome-message {
+      text-align: center;
+      font-size: 24px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
-  <nav class="menu-list" id="menuList">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="container" id="login-container">
+    <h2>Login</h2>
+    <form onsubmit="handleLogin(event)">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required />
 
-  <section>
-    <h2 id="greeting">Hello, Welcome to my personal website!</h2>
-  </section>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
 
-  <section id="about">
-    <h1>About</h1>
-    <div class="study1">
-        <p><em>Bachelor’s Degree in English and Literature</em></p>
-        <p>In the year of 2019-2022 I studied at Uzbekistan State World Languages University (UzSWLU) <span style="color: rgb(168, 69, 69);">in the field of English and Literature.</span> Studied a wide range of literary works, critical theory, and academic writing. Developed strong <span style="color: rgb(168, 69, 69);">analytical, research, and communication skills</span> through the study of classic and modern texts. Gained experience in literary analysis, academic essay writing, and textual interpretation.</p>
-    </div>
-    <div class="study2">
-        <p><em>Web Developer (In Training)</em></p>
-        <p>I have been learning web development for over a year, with hands-on experience in building <span style="color: rgb(168, 69, 69);">responsive and interactive websites</span> using HTML, CSS, and JavaScript. I have worked with modern technologies including <span style="color: rgb(168, 69, 69);">React, jQuery, Node.js, and SQL,</span> and I’m currently expanding my backend knowledge by learning Python. I’m actively strengthening my JavaScript skills through FreeCodeCamp, where I build real-world projects that focus on core programming concepts and problem-solving.</p>
-    </div>
-  </section>
-  <section id="skills">
-    <h1>Skills</h1>
-    <div class="skills-grid">
-        <div class="item1"><img src="https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-html/sta-je-html.jpg" alt=""></div>
-        <div class="item2"><img src="https://web.dev/static/css/image/hero-css.png?hl=pl" alt=""></div>
-        <div class="item3"><img src="https://phoneunder.wordpress.com/wp-content/uploads/2016/03/javascript-logo-png.png" alt=""></div>
-        <div class="item4"><img src="https://miro.medium.com/v2/resize:fit:1400/0*y6IcBe5J1AdALzXw.png" alt=""></div>
-        <div class="item5"><img src="https://cyberiusz.pl/assets/images/New/blog/api-wordpress.jpg" alt=""></div>
-        <div class="item6"><img src="https://lh5.googleusercontent.com/iK9XEDsygXbW-EZK0zLyQUwar7l0ypNKMiWCZBpclALVdhizz8SwO0FVI981hyl9Jh0IyHm7euQIn9_3WeGY9--4-brnH6IaeihdtM-NWVcHEMHFPmvYudYBNSMKQkKwJtBF6B4QJus5pRE5V3IA8w" alt=""></div>
-    </div>
-    <div class="skills-info">
-        <p><em>Self-Taught Web Developer</em></p>
-        <p>I am a passionate and <strong><span style="color: rgb(168, 69, 69);">web developer</span></strong> who has been learning web development independently through consistent practice, online courses, and real-world projects. My journey has equipped me with strong skills in front-end development, including <strong><span style="color: rgb(168, 69, 69);">HTML, CSS, and JavaScript, with a focus on creating responsive, accessible, and user-friendly websites.</span></strong> I have solid experience working with JavaScript libraries and frameworks such as <strong><span style="color: rgb(168, 69, 69);">React.js and jQuery</span></strong>, as well as UI frameworks like <strong><span style="color: rgb(168, 69, 69);">Bootstrap</span></strong> for building modern and visually appealing interfaces. <br><br> I’m also familiar with consuming and integrating RESTful APIs to build dynamic and data-driven applications. Beyond the front end, I have foundational knowledge of <strong><span style="color: rgb(168, 69, 69);">backend development,</span></strong> which allows me to understand and contribute to full-stack workflows. I use Git and GitHub for version control and collaboration, and I’m continuously improving my skills by working on projects, solving real-world problems, and learning <strong><span style="color: rgb(168, 69, 69);">Python</span></strong> to expand my backend capabilities further. <br><br> As a dedicated self-learner, I thrive in environments that challenge me to grow, and I’m always eager to learn new tools, technologies, and best practices in the ever-evolving field of web development.</p>
-    </div>
-  </section>
-  <section id="contact">
-    <h1>Contact</h1>
-    <div class="contact1">
-        <p class="adress">Phone number: <br><br> +48 123 456 789</p>
-        <p class="adress">Email adress: <br><br> yourname@gmail.com</p>
-        <p class="adress">LinkedIN profile: <br><br> https://yourprofile/linkedin/com</p>
-        <p class="adress">GitHub profile: <br><br> https://githubprofile/com</p>
-    </div>
-  </section>
+      <button type="submit">Enter</button>
+    </form>
+  </div>
 
-  <script src="script.js">
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
+  <div class="container" id="welcome-container" style="display: none;">
+    <h1 id="welcome-message"></h1>
+  </div>
 
-    if (name) {
-        document.getElementById('greeting').textContent = `Welcome ${name}, welcome to my webpage!`;
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('fullname').value;
+      const loginBox = document.getElementById('login-container');
+      const welcomeBox = document.getElementById('welcome-container');
+      const message = document.getElementById('welcome-message');
+
+      window.location.href = `home.html?name=${encodeURIComponent(name)}`;
     }
   </script>
 </body>
